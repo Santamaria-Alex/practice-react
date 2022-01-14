@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import { useState } from "react";
+import AddTask from "./components/AddTask";
 
 function App() {
   //have tasks in main App so tasks can be accessed globally
@@ -25,6 +26,13 @@ function App() {
     },
   ]);
 
+  //Add Task
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
+  };
+
   //Delete Tasks
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
@@ -42,6 +50,7 @@ function App() {
   return (
     <div className="container">
       <Header />
+      <AddTask onAdd={addTask} />
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
