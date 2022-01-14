@@ -3,6 +3,7 @@ import Tasks from "./components/Tasks";
 import { useState } from "react";
 
 function App() {
+  //have tasks in main App so tasks can be accessed globally
   const [tasks, setTasks] = useState([
     {
       id: 1,
