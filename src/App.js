@@ -4,6 +4,8 @@ import { useState } from "react";
 import AddTask from "./components/AddTask";
 
 function App() {
+  const [showAddTask, setShotAddTask] = useState(false);
+
   //have tasks in main App so tasks can be accessed globally
   const [tasks, setTasks] = useState([
     {
@@ -49,8 +51,8 @@ function App() {
 
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={() => setShotAddTask(!showAddTask)} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
