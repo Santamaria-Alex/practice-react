@@ -11,6 +11,12 @@
       "text": "Megadeth",
       "day": "April 14 at 7:00pm",
       "reminder": true
+    },
+    {
+      "text": "test2",
+      "day": "test2",
+      "reminder": false,
+      "id": 3
     }
   ]
 }
